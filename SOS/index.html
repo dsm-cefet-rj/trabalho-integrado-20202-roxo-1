@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" lang="pt-br">
+	<meta name="viewport" content="width=device-width">
+	<title>SOS</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div class="fixed">
+		<h4>SOS - Sistema para Orientação de Saúde</h4>
+	</div>
+
+	<div id="flexible">
+    <section id="menu">
+      <a >login</a><a onclick="mostraCadastro()">cadastro</a> <a >meu histórico</a> <a >buscar orientação</a>
+    </section>
+    <div id="Telacadastro" class="cadastro" hidden> cadastro de exemplo
+      <select id="selecao-entidade">
+        <option value="default" selected></option>
+        <option value="Acidente">Acidente</option>
+        <option value="Atendimento">Atendimento</option>
+        <option value="Ponto de Atendimento">Ponto de Atendimento</option>
+        <option value="Sintoma">Sintoma</option>
+      </select> <br> <br>
+      <button id="btn_cad" onclick="cadastrar()">Cadastrar</button>
+    </div>
+    <div id="Telaligacao" hidden>
+      <img name="img_ligar" src="imagens/orientacao-ligacao.PNG" width="98%" > <br>
+      <button class="btn_ligar" id="btn_bombeiros" onclick="chamaBombeiros()"><a href="tel:193">193</a></button>
+      <button class="btn_ligar" id="btn_samu" onclick="chamaSamu()"><a href="tel:192">192</a></button> 
+    </div>    
+  </div>
+
+  <div class="fixed">      
+    <button class="btn_ligar" onclick="chamar()"> <i class="glyphicon glyphicon-phone"></i> LIGAR</button>
+  </div>  
+    <script src="cadastroController.js"></script>
+    <script src="ligacaoController.js"></script>
+    <script src="utils.js"></script>
+  </body>
+</html>
