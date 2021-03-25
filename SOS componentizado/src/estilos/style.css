@@ -1,11 +1,11 @@
-div{
+div {
   text-align: center;
 }
-a{
+a {
   width: 40%;
   align-items: center;
 }
-.fixed{
+.fixed {
   position: fixed;
   left: 0;
   width: 100%;
@@ -14,24 +14,24 @@ a{
   border-radius: 10px;
   background-color: lightcoral;
 }
-.btn_ligar{
+.btn_ligar {
   font-size: large;
   font-weight: bold;
 }
-.cadastro{
+.cadastro {
   margin: 5px;
   padding: 5px;
   border: solid 1px;
 }
-label{
+label {
   display: flex;
   flex-direction: row;
   font-size: small;
 }
-input{  
-  width: 100%;
+input {
+  width: 90%;
 }
-section{
+section {
   display: flex;
   flex-direction: column;
   margin: 20px;

@@ -1,53 +1,19 @@
-import React from 'react';
-import './App.css';
-import Header from './header';
-import Footer from './footer';
-import TelaCadastro from './TelaCadastro';
-import TelaLigacao from './TelaLigacao';
-//import Menu from './menu';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import React from "react";
+import { Provider } from "react-redux";
+import Store from "./telas/reducer";
+import "./estilos/style.css";
+import Header from "./componentes/header";
+import Footer from "./componentes/footer";
+import Menu from "./componentes/menu";
 
-function App() {
-  return (<div>
+export default function App() {
+  return (
+    <>
       <Header />
-        <Router>
-          <section>
-              <menu>
-                <Link to="/busca">Busca</Link>
-              </menu>
-              <menu>
-                <Link to="/cadastro">Cadastro</Link> 
-              </menu>         
-              <menu>
-                <Link to="/historico">Meu Histórico</Link>
-              </menu>
-              <menu>
-                <Link to="/login">Login</Link>
-              </menu>
-          </section>
-
-          <Switch>
-            <Route exact path="/busca">
-              {/* modelo de paths */}
-            </Route>
-
-            <Route exact path="/cadastro">
-              <TelaCadastro />
-            </Route>
-
-            <Route exact path="/historico">
-              {/* modelo de paths */}
-            </Route>
-
-            <Route exact path="/login">
-              {/* modelo de paths */}
-            </Route>
-          </Switch>
-        </Router>
-        <TelaLigacao />
+      <Provider store={Store}>
+        <Menu />
+      </Provider>
       <Footer />
-    </div>
+    </>
   );
 }
-
-export default App;
