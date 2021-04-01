@@ -1,13 +1,13 @@
 import { createStore } from "redux";
+import mockSintoma from "../mocks/mockSintoma";
 
-const estadoInicial = {
-  data: "now S",
-  nome: "nome sintoma",
-  descricao: { nome: "", valor: "" },
-  subdescricao: { nome: "", valor: "" }
-};
+const estadoInicial = mockSintoma;
+
 function sintoma(state = estadoInicial, action) {
-  return state;
+  switch (action.type) {
+    default:
+      return state;
+  }
 }
 
 const store = createStore(sintoma);

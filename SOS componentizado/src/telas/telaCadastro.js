@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "../estilos/style.css";
 import mocks from "../mock";
-import Button from "../componentes/button";
-
-function cadastrar(selected) {
-  console.log(selected);
-}
+import Formulario from "../componentes/formCad";
 
 function ConteudoC() {
-  const Entidades = mocks[0].Entidades;
+  const Entidades = mocks;
+  const [formulario, setFormulario] = useState(<></>); //HOOK
 
   return (
     <div className="flexible">
-      <select onChange={e => cadastrar(e.target.value)} defaultValue={""}>
+      <select
+        className="custom-select"
+        onChange={e => setFormulario(<Formulario entidade={e.target.value} />)}
+        defaultValue={""}
+      >
         {Entidades.map(ent => (
-          <option value={ent} key={ent}>
+          <option key={ent} value={ent}>
             {ent}
           </option>
         ))}
       </select>
       <br /> <br />
-      <Button type="button" id="btn_cad" name="Cadastrar" />
+      {formulario}
     </div>
   );
 }

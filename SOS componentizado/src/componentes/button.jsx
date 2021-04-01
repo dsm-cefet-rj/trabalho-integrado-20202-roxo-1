@@ -7,7 +7,8 @@ const PrimaryButton = props => {
       type={props.type}
       className={props.className}
       id={props.id}
-      onClick={() => console.log("cliquei em " + props.name)}
+      onClick={() => props.onClick}
+      //console.log("cliquei em " + props.name)
     >
       {props.icon}
       {" " + props.name}
