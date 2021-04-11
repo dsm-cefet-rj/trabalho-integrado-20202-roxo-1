@@ -1,3 +1,3 @@
-const campos = ["data", "nome", "descricao"];
+const campos = ["data", "nome", "descriçao"];
 
 export default campos;

@@ -1,0 +1,62 @@
+{
+  "Acidentes": [
+    {
+      "id": 0,
+      "data": "",
+      "descricao": "",
+      "estado": "",
+      "cidade": "",
+      "bairro": ""
+    },
+    {
+      "id": 1,
+      "data": "",
+      "descricao": "",
+      "estado": "",
+      "cidade": "",
+      "bairro": ""
+    }
+  ], 
+  "Atendimentos": [
+    {
+      "id": 0,
+      "data": "now",
+      "ptoAtend": "Hospital Quinta Dor",
+      "sintomas": [],
+      "profissionais": [{ "nome": "Dr. Médico" },{ "nome": "Dra. Médica" }],
+      "medicamentos": [{ "nome": "Novalgina", "descricao": "1 comprimido por dia" }]
+    }
+  ], 
+  "PontosAtendimento": [
+    {
+      "id": 0,
+      "nome": "Hospital Quinta Dor",
+      "estado": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "São Cristóvão",
+      "endereco": "end"
+    },
+    {
+      "id": 1,
+      "nome": "Hospital São Vicente de Paulo",
+      "estado": "RJ",
+      "cidade": "Rio de Janeiro",
+      "bairro": "Tijuca",
+      "endereco": "end"
+    }
+  ], 
+  "Sintomas": [
+    {
+      "id": 0,
+      "data": "datetime",
+      "nome": "febre",
+      "descricao": "temperatura de 40 graus e dor de cabeça forte"
+    },
+    {
+      "id": 1,
+      "data": "datetime",
+      "nome": "queimadura",
+      "descricao": "parte do corpo: braço"
+    }
+  ]
+}

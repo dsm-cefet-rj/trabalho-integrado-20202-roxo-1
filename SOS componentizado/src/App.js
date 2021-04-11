@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Store from "./telas/reducer";
+import Store from "./reducers/reducer";
 import "./estilos/style.css";
 import Header from "./componentes/header";
 import Footer from "./componentes/footer";
