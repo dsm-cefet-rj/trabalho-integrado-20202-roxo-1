@@ -9,7 +9,7 @@ yup.setLocale(ptForm); //validacoes em portugues!
 const schemaValidacoes = yup.object().shape({
   usuario: yup
     .string()
-    .email()
+    .length(2)
     .required(),
   senha: yup
     .string()
@@ -20,8 +20,8 @@ const schemaValidacoes = yup.object().shape({
 const obj = { usuario: "", senha: "" };
 
 function enviar(event) {
-  event.preventDefault();
-  alert("Logando... Aguarde.");
+  console.log(event);
+  alert("Logando usuário '" + event.usuario + "'");
 }
 
 const Login = () => (
