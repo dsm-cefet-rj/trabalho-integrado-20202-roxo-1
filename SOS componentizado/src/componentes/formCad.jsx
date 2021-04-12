@@ -1,56 +1,68 @@
-import React from "react";
+import React, {Fragment} from "react";
+//import { useDispatch } from "react-redux";
 import "../estilos/style.css";
+import { ErrorMessage, Formik, Form as FF, Field } from "formik";
 import mockSintoma from "../mocks/entS";
 import mockAcidente from "../mocks/entAc";
 import mockPtoAtd from "../mocks/entPA";
 import mockAtd from "../mocks/entAt";
+import schemaValid from "./yupValidCad";
 
-function handleSubmit(event) {
-  event.preventDefault();
-  //console.log(event);
-  alert("Salvando... Aguarde.");
+function cadastrar(e) {
+  console.log(e);
+  //const dispatch = useDispatch();
 }
+
+const TESTE = (props) =>(
+  <Formik initialValues={props.fvalores} onSubmit={cadastrar} validationSchema={props.fschema} >
+      <FF className="Form-Cadastro">
+        {props.flabels.map(item=>(
+          <Fragment key={props.fent.concat("-" + item)}>
+            <label>{item}: *</label>             
+            <Field className="Form-Field" 
+                type="text" 
+                name={item.replaceAll('ç', 'c')}
+                placeholder={props.fent.concat("-" + item)}
+            />
+            <ErrorMessage component="span" name={item.replaceAll('ç', 'c')} />
+          </Fragment>))}          
+          <input type="submit" value="Cadastrar" />
+      </FF>
+  </Formik>
+);
 
 function PrimaryForm(props) {
   let lista = [];
-
+  
   switch (props.entidade) {
     case "Atendimento":
-      lista = mockAtd;
-      break;
+      return (
+        <TESTE flabels={mockAtd} fent={props.entidade} fvalores={new Object()} fschema={schemaValid[3]} />
+      );
     case "Acidente":
       lista = mockAcidente;
-      break;
+      return (
+        <TESTE flabels={mockAcidente} fent={props.entidade} fvalores={new Object()} fschema={schemaValid[1]} />
+      );
     case "Ponto de Atendimento":
-      lista = mockPtoAtd;
-      break;
+      //alert("Apenas intituições de saúde podem cadastrar esta entidade.");
+      if(confirm("Apenas intituições de saúde podem cadastrar esta entidade.")){
+        lista = mockPtoAtd;
+        return (
+          <TESTE flabels={mockPtoAtd} fent={props.entidade} fvalores={new Object()} fschema={schemaValid[2]}/>
+        );
+      }else{
+        console.log("Ação não permitida para esse Usuário!");
+        return <></>;
+      }
     case "Sintoma":
       lista = mockSintoma;
-      break;
+      return (
+        <TESTE flabels={mockSintoma} fent={props.entidade} fvalores={new Object()} fschema={schemaValid[0]}/>
+      );
     default:
-      break;
+      return <></>;
   }
-  return (
-    <form>
-      {lista.map(item => (
-        <>
-          <label key={props.entidade.concat(item)}>{item}: *</label>
-          <input
-            key={props.entidade.concat("-" + item)}
-            type="text"
-            className="form-control"
-            placeholder={props.entidade.concat("-" + item)}
-          />
-        </>
-      ))}
-      <input
-        type="button"
-        id="btn_cad"
-        value="Cadastrar"
-        onClick={handleSubmit}
-      />
-    </form>
-  );
 }
 
 export default PrimaryForm;
